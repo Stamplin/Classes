@@ -23,7 +23,7 @@ namespace Monogame_3___Animations_Part_2_Lists
         Texture2D tribbleOrangeTexture;
         Texture2D tribbleIntroTexture;
 
-        List<Texture2D> tribbleTextures; // To be used to select a random tribble
+        List<Texture2D> tribbleTextures; 
 
         List<Tribble> tribbles;
 
@@ -43,8 +43,8 @@ namespace Monogame_3___Animations_Part_2_Lists
             IsMouseVisible = true;
 
             window = new Rectangle(0, 0, 800, 500);
-            _graphics.PreferredBackBufferWidth = window.Width;  // set this value to the desired width of your window
-            _graphics.PreferredBackBufferHeight = window.Height;   // set this value to the desired height of your window
+            _graphics.PreferredBackBufferWidth = window.Width;  
+            _graphics.PreferredBackBufferHeight = window.Height;  
             _graphics.ApplyChanges();
         }
 
@@ -58,7 +58,7 @@ namespace Monogame_3___Animations_Part_2_Lists
 
             tribbles = new List<Tribble>();
 
-            // Adds textures to a list so a random one can be easily selected
+           
             tribbleTextures = new List<Texture2D>(){
                 tribbleBrownTexture,
                 tribbleCreamTexture,
@@ -66,10 +66,10 @@ namespace Monogame_3___Animations_Part_2_Lists
                 tribbleOrangeTexture
             };
 
-            // Generates a list of 20 tribbles with random locations, speeds, textures and sizes
+           
             for (int i = 0; i < 20; i++)
             {
-                int size = generator.Next(50, 100); // Wee need the size of a tribble before we can assign it to a random location so it always appears on the screen
+                int size = generator.Next(50, 100); 
                 tribbles.Add(new Tribble(tribbleTextures[generator.Next(tribbleTextures.Count)], new Rectangle(generator.Next(_graphics.PreferredBackBufferWidth - size), generator.Next(_graphics.PreferredBackBufferHeight - size), size, size), new Vector2(generator.Next(-2, 3), generator.Next(-2, 3))));
             }
 
